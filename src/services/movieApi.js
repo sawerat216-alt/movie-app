@@ -23,7 +23,9 @@ export async function searchMovies(query) {
 
     return data.Search || [];
   } catch (error) {
-    throw new Error(error.message || "Failed to search movies");
+    throw new Error(error.message || "Failed to search movies", {
+      cause: error,
+    });
   }
 }
 
@@ -49,6 +51,8 @@ export async function getMovieDetails(imdbID) {
 
     return data;
   } catch (error) {
-    throw new Error(error.message || "Failed to fetch movie details");
+    throw new Error(error.message || "Failed to fetch movie details", {
+      cause: error,
+    });
   }
 }

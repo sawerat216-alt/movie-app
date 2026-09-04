@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import SearchBar from "./Components/SearchBar";
+import Health from "./pages/Health";
 import MovieList from "./Components/MovieList";
 import MovieDetails from "./Components/MovieDetails";
 import Favorites from "./Components/Favorites";
@@ -55,6 +56,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/movie/:imdbID" element={<MovieDetails />} />
         <Route path="/favorites" element={<Favorites />} />
+        <Route path="/health" element={<Health />} />
       </Routes>
     </div>
   );

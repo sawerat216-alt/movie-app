@@ -1,15 +1,9 @@
-import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useState } from "react";
 import MovieList from "./MovieList";
 import { getFavorites, removeFavorite } from "../utils/favorites";
 
 function Favorites() {
-  const [favorites, setFavorites] = useState([]);
-  const location = useLocation();
-
-  useEffect(() => {
-    setFavorites(getFavorites());
-  }, [location]); // Refresh favorites when navigating to this page
+  const [favorites, setFavorites] = useState(() => getFavorites());
 
   const handleRemoveFavorite = (imdbID) => {
     const updatedFavorites = removeFavorite(imdbID);
@@ -31,7 +25,11 @@ function Favorites() {
             You have {favorites.length} favorite movie
             {favorites.length !== 1 ? "s" : ""}
           </p>
-          <MovieList movies={favorites} onRemoveFavorite={handleRemoveFavorite} />
+
+          <MovieList
+            movies={favorites}
+            onRemoveFavorite={handleRemoveFavorite}
+          />
         </>
       )}
     </main>
