@@ -8,29 +8,23 @@ function App() {
 
   const tabs = [
     {
-      id: "overview",
-      label: "Overview",
-      content: "This is the overview tab.",
+      id: "one",
+      label: "Tab One",
+      content: "Content for tab one.",
     },
     {
-      id: "features",
-      label: "Features",
-      content: "This tab describes the main features.",
-    },
-    {
-      id: "accessibility",
-      label: "Accessibility",
-      content: "These components are designed with accessibility in mind.",
+      id: "two",
+      label: "Tab Two",
+      content: "Content for tab two.",
     },
   ];
 
   return (
-    <main className="app">
-      <h1>Accessible React Components</h1>
+    <main>
+      <h1>Accessible Components</h1>
 
-      {/* Modal */}
       <section>
-        <h2>Modal Dialog</h2>
+        <h2>Modal</h2>
 
         <button onClick={() => setIsModalOpen(true)}>
           Open Modal
@@ -41,25 +35,17 @@ function App() {
           title="Example Modal"
           onClose={() => setIsModalOpen(false)}
         >
-          <p>This is an accessible modal dialog.</p>
-
-          <button onClick={() => setIsModalOpen(false)}>
-            Close Modal
-          </button>
+          <p>This is a modal.</p>
         </ModalDialog>
       </section>
 
-      {/* Tabs */}
       <section>
         <h2>Tabs</h2>
-
         <Tabs tabs={tabs} />
       </section>
 
-      {/* Disclosure */}
       <section>
         <h2>Disclosure</h2>
-
         <Disclosure />
       </section>
     </main>
