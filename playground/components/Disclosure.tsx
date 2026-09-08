@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import "./Disclosure.css";
 
 export default function Disclosure() {
   const [isOpen, setIsOpen] = useState(false);
-
-  const contentId = "disclosure-content";
+  const contentId = useId();
 
   return (
     <div className="disclosure">
@@ -13,23 +12,25 @@ export default function Disclosure() {
         className="disclosure-button"
         aria-expanded={isOpen}
         aria-controls={contentId}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setIsOpen((previous) => !previous)}
       >
         <span>What is a Disclosure?</span>
-        <span aria-hidden="true">{isOpen ? "−" : "+"}</span>
+
+        <span aria-hidden="true">
+          {isOpen ? "−" : "+"}
+        </span>
       </button>
 
-      {isOpen && (
-        <div
-          id={contentId}
-          className="disclosure-content"
-        >
-          <p>
-            A disclosure is an interactive component that allows users
-            to show or hide additional content.
-          </p>
-        </div>
-      )}
+      <div
+        id={contentId}
+        className="disclosure-content"
+        hidden={!isOpen}
+      >
+        <p>
+          A disclosure is an interactive component that allows users
+          to show or hide additional content.
+        </p>
+      </div>
     </div>
   );
 }
