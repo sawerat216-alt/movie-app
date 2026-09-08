@@ -1,0 +1,31 @@
+.disclosure {
+  width: 100%;
+  max-width: 600px;
+}
+
+.disclosure-button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  background: #f5f5f5;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.disclosure-button:hover {
+  background: #eaeaea;
+}
+
+.disclosure-content {
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-top: none;
+  background: white;
+}
+
+.disclosure-content p {
+  margin: 0;
+}
